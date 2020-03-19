@@ -28,7 +28,7 @@ void Level::update(float dt)
 }
 
 // Render level
-void Level::render()
+void Level::render(MapWork mapWork)
 {
 	beginDraw();
 	mapWork.renderMap();

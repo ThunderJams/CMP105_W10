@@ -7,6 +7,7 @@
 #include "MapWork.h"
 
 
+
 class Level{
 public:
 	Level(sf::RenderWindow* hwnd, Input* in);
@@ -14,7 +15,7 @@ public:
 
 	void handleInput(float dt);
 	void update(float dt);
-	void render();
+	void render(MapWork mapWork);
 
 private:
 	// Default functions for rendering to the screen.
@@ -24,6 +25,5 @@ private:
 	// Default variables for level class.
 	sf::RenderWindow* window;
 	Input* input;
-	MapWork mapWork(sf::RenderWindow* window);
 	
 };

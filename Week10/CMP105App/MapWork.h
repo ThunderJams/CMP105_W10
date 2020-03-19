@@ -5,8 +5,6 @@
 class MapWork
 {
 public:
-	TileMap tileMap;
-
 	MapWork(sf::RenderWindow* hwnd);
 	~MapWork();
 
@@ -14,5 +12,6 @@ public:
 
 private:
 	sf::RenderWindow* window;
+	TileMap tileMap;
 };
 
