@@ -1,7 +1,9 @@
 #include "MapWork.h"
 
-MapWork::MapWork(sf::RenderWindow* hwnd) {
+MapWork::MapWork(sf::RenderWindow* hwnd, Mario* mar) {
 	window = hwnd;
+	mario = mar;
+
 	tileMap.loadTexture("gfx/marioTiles.png");
 
 	GameObject tile;
@@ -39,6 +41,9 @@ MapWork::MapWork(sf::RenderWindow* hwnd) {
 
 	tileMap.setTileMap(map, mapSize);
 	tileMap.setPosition(sf::Vector2f(0, 408));
+
+	
+
 	tileMap.buildLevel();
 }
 
@@ -46,4 +51,17 @@ MapWork::~MapWork() {}
 
 void MapWork::renderMap(){
 	tileMap.render(window);
+}
+
+void MapWork::mapCollide() {
+	std::vector<GameObject>* world = tileMap.getLevel();
+	for (int i = 0; i < (int)world->size(); i++)
+	{ // if collision check should occur 
+		if ((*world)[i].isCollider()) {
+			if (Collision::checkBoundingBox(mario, &(*world)[i]))
+			{
+				mario->collisionRespone(&(*world)[i]);
+			}
+		}
+	}
 }
