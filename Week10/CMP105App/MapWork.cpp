@@ -2,7 +2,6 @@
 
 MapWork::MapWork(sf::RenderWindow* hwnd) {
 	window = hwnd;
-
 	tileMap.loadTexture("gfx/marioTiles.png");
 
 	GameObject tile;
